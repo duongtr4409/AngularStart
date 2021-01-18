@@ -7,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  private name: any;
-  private age: any;
-  private listFrameWork: any;
-  private style: any;
+  public  name: any;
+  public  age: any;
+  public  listFrameWork: any;
+  public  style: any;
 
   public setName(name: any): void{
     this.name = name
@@ -42,6 +42,24 @@ export class HomeComponent implements OnInit {
 
   public getStyle(): any{
     return this.style;
+  }
+
+
+
+  public addAge(addNumber: number): void {
+    if(this.age >= 22){
+      alert('age > 22');
+    }else{
+      this.age += addNumber;
+    }
+  }
+
+  public diffAge(diffNumber: number): void{
+    if(this.age <= 0){
+      alert('Age < 0');
+    }else{
+      (this.age >= diffNumber) ? this.age -= diffNumber : alert('Age < ' + diffNumber) ;
+    }
   }
 
   constructor() { 

@@ -1,23 +1,24 @@
 <div class="myCss-firstStyle">
     
-    <span *ngIf="getStyle() !== 1;then styleRed; else styleBlue" class="myCss-textRed"></span>
+    <div> <span><h3>Style:</h3></span> <input type="text" [(ngModel)]="style"></div>
+    <div> <span><h3>Name :</h3></span> <input type="text" [(ngModel)]="name"></div>
+    <br><div> <button (click)="addAge(1)" (dblClick)="addAge(5)">Add</button> <button (click)="diffAge(1)" (dblclick)="diffAge(5)">Diff</button> </div>
 
-    <ng-template #styleBlue [ngTemplateOutlet]="styleBlue" [ngOutletContext]="context" class="myCss-textBlue">
+    <div *ngIf="getStyle() == 1" class="myCss-textRed">
         <p>home works!</p>
         <h1> {{getName()}} </h1>
         <h2> {{getAge()}}</h2>
         <select>
             <option *ngFor="let item of getListFrameWork()" >{{item}}</option>
         </select>    
-    </ng-template>
+    </div>
 
-    <ng-template #styleRed [ngTemplateOutlet]="styleRed" [ngOutletContext]="context" class="myCss-textRed">
+    <div *ngIf="getStyle() != 1" class="myCss-textBlue">
         <p>home works!</p>
         <h1> {{getName()}} </h1>
         <h2> {{getAge()}}</h2>
         <select>
             <option *ngFor="let item of getListFrameWork()" >{{item}}</option>
-        </select>
-    </ng-template>
-
+        </select>    
+    </div>
 </div>
