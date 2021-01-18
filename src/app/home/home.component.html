@@ -1,0 +1,23 @@
+<div class="myCss-firstStyle">
+    
+    <span *ngIf="getStyle() !== 1;then styleRed; else styleBlue" class="myCss-textRed"></span>
+
+    <ng-template #styleBlue [ngTemplateOutlet]="styleBlue" [ngOutletContext]="context" class="myCss-textBlue">
+        <p>home works!</p>
+        <h1> {{getName()}} </h1>
+        <h2> {{getAge()}}</h2>
+        <select>
+            <option *ngFor="let item of getListFrameWork()" >{{item}}</option>
+        </select>    
+    </ng-template>
+
+    <ng-template #styleRed [ngTemplateOutlet]="styleRed" [ngOutletContext]="context" class="myCss-textRed">
+        <p>home works!</p>
+        <h1> {{getName()}} </h1>
+        <h2> {{getAge()}}</h2>
+        <select>
+            <option *ngFor="let item of getListFrameWork()" >{{item}}</option>
+        </select>
+    </ng-template>
+
+</div>
