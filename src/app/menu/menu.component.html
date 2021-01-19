@@ -1,0 +1,5 @@
+<div>
+    <ul>
+        <li *ngFor="let item of getListMenu()"><a [routerLink]="['/', item.link]" routerLinkActive="router-link-active" >{{item.name | uppercase}}</a></li>
+    </ul>
+</div>
