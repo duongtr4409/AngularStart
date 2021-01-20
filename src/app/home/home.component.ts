@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AgeServiceService } from '../Services/age-service.service';
 
 @Component({
   selector: 'app-home',
@@ -51,6 +52,7 @@ export class HomeComponent implements OnInit {
       alert('age > 22');
     }else{
       this.age += addNumber;
+      this.ageService.age = this.age;
     }
   }
 
@@ -59,12 +61,13 @@ export class HomeComponent implements OnInit {
       alert('Age < 0');
     }else{
       (this.age >= diffNumber) ? this.age -= diffNumber : alert('Age < ' + diffNumber) ;
+      this.ageService.age = this.age;
     }
   }
 
-  constructor() { 
+  constructor(private ageService: AgeServiceService) { 
     this.name = 'DuowngTora';
-    this.age = 22;
+    this.age = ageService.age;
     this.listFrameWork = ['N/A', 'Spring Boot', 'Spring MVC', 'Spring Sercurity', 'AngularJS', 'Angular', 'VueJS', 'ReactJS', 'React Native', 'Node js', '...'];
     this.style = 2;
   }

@@ -6,8 +6,9 @@
 
     <div *ngIf="getStyle() == 1" class="myCss-textRed">
         <p>home works!</p>
-        <h1> {{getName()}} </h1>
-        <h2> {{getAge()}}</h2>
+        <h1> {{getName() | uppercase}} </h1>
+        <h2> {{getAge() | number: "1.1-1" | currency}} </h2>
+        <h3 appBold> {{getListFrameWork() | json}} </h3>
         <select>
             <option *ngFor="let item of getListFrameWork()" >{{item}}</option>
         </select>    
@@ -17,7 +18,7 @@
         <p>home works!</p>
         <h1> {{getName() | lowercase}} </h1>
         <h2> {{getAge() | number: "1.1-1" | currency}}</h2>
-        <h3> {{getListFrameWork() | json}} </h3>
+        <h3 appBold> {{getListFrameWork() | json}} </h3>
         <select>
             <option *ngFor="let item of getListFrameWork()" >{{item}}</option>
         </select>    
