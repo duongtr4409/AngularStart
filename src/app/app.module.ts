@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms'
@@ -9,6 +10,9 @@ import { MenuComponent } from './menu/menu.component';
 import { AboutComponent } from './about/about.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { BoldDirective } from './Directives/bold.directive';
+import { TemplateDrivenFormComponent } from './Forms/template-driven-form/template-driven-form.component';
+import { ReactiveFormComponent } from './Forms/reactive-form/reactive-form.component';
+import { ErrorMessageDirective } from './Directives/error-message.directive';
 
 @NgModule({
   declarations: [
@@ -17,12 +21,16 @@ import { BoldDirective } from './Directives/bold.directive';
     MenuComponent,
     AboutComponent,
     PageNotFoundComponent,
-    BoldDirective
+    BoldDirective,
+    TemplateDrivenFormComponent,
+    ReactiveFormComponent,
+    ErrorMessageDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

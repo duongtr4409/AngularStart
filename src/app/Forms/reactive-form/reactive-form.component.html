@@ -1,0 +1,22 @@
+<div class="container">
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit($event)">
+  
+        <label>
+          First Name:
+          <input type="text" required  formControlName="firstName">
+        </label>
+        <span *ngIf="profileForm.controls.firstName.invalid" appErrorMessage> *vui lòng nhập đủ thông tin này</span>
+        
+        <br>
+
+        <label>
+          Last Name:
+          <input type="text"  required  formControlName="lastName">
+        </label>
+        <span *ngIf="profileForm.controls.lastName.invalid" appErrorMessage> *vui lòng nhập đủ thông tin này</span>
+        
+        <br>
+
+        <button type="submit" class="btn btn-primary" [disabled]="!profileForm.valid"> Registry </button>
+    </form>
+</div>
