@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AgeServiceService } from '../Services/age-service.service';
+import { ServerHttpService } from '../Services/server-http.service';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,7 @@ export class HomeComponent implements OnInit {
   public  age: any;
   public  listFrameWork: any;
   public  style: any;
+  public posts: any;
 
   public setName(name: any): void{
     this.name = name
@@ -65,7 +67,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  constructor(private ageService: AgeServiceService) { 
+  constructor(private ageService: AgeServiceService, private serverHttpService: ServerHttpService) { 
     this.name = 'DuowngTora';
     this.age = ageService.age;
     this.listFrameWork = ['N/A', 'Spring Boot', 'Spring MVC', 'Spring Sercurity', 'AngularJS', 'Angular', 'VueJS', 'ReactJS', 'React Native', 'Node js', '...'];
@@ -73,6 +75,16 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.serverHttpService.getProfile().subscribe((data => {
+      console.log("typeof(data): ",typeof(data));
+      console.log("data: ",JSON.stringify(data));
+    }))
+
+    this.serverHttpService.getPosts().subscribe((
+      data => {
+        this.posts = data;
+      }
+    ));
   }
 
 }

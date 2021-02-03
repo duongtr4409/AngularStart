@@ -23,4 +23,12 @@
             <option *ngFor="let item of getListFrameWork()" >{{item}}</option>
         </select>    
     </div>
+
+    <div>
+        <ul *ngIf="posts != null">
+            <li *ngFor="let item of posts">
+                {{item | json}}
+            </li>
+        </ul>
+    </div>
 </div>
